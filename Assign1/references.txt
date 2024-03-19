@@ -1,0 +1,14 @@
+[1] Michael L. Littman, Ifeoma Ajunwa, Guy Berger, Craig Boutilier, Morgan Currie, Finale Doshi-Velez, Gillian Hadfield,
+Michael C. Horowitz, Charles Isbell, Hiroaki Kitano, Karen Levy, Terah Lyons, Melanie Mitchell, Julie Shah, Steven
+Sloman, Shannon Vallor, and Toby Walsh. "Gathering Strength, Gathering Storms: The One Hundred Year Study on
+Artificial Intelligence (AI100) 2021 Study Panel Report." Stanford University, Stanford, CA, September 2021.
+[2] Bubeck, S., Chandrasekaran, V., Eldan, R., Gehrke, J., Horvitz, E., Kamar, E., Lee, P., Lee, Y.T., Li, Y., Lundberg, S.
+and Nori, H., 2023. Sparks of artificial general intelligence: Early experiments with gpt-4. arXiv preprint arXiv:2303.12712.
+[3] Fawn Fitter, Steven T. Hunt, SAP Insights, "How AI can end bias", [Online], Available: https://www.sap.com/insights/viewpoints/how-ai-can-end-bias.html
+[4] Reece Brown, "ORNL supports executive order for safe, secure and trustworthy AI", [Online], Available: https://www.ornl.gov/news/ornl-supports-executive-order-safe-secure-and-trustworthy-ai
+[5] MongoDB products, "Atlas Vector Search", [Online], Available: https://www.mongodb.com/products/platform/atlas-vector-search
+[6] CloudFlare Learning, "What is vector database", [Online], Available: https://www.cloudflare.com/learning/ai/what-is-vector-database/
+[7] Mark Hinkle, May 12th, 2023, "Vector Databases: Long-Term Memory for Artificial Intelligence" [Online], Available: https://thenewstack.io/vector-databases-long-term-memory-for-artificial-intelligence/
+[8] Josh Achiam, Steven Adler, Sandhini Agarwal, et.al., "GPT-4 Technical Report", Available: https://arxiv.org/pdf/2303.08774.pdf
+[9] Robert Engels, Apr 04, 2022, "A case for Context Awareness in AI", [Online], Available: https://www.capgemini.com/insights/expert-perspectives/a-case-for-context-awareness-in-ai/
+[10] Monolith.ai blogs, "What is a self-learning model", [Online], Available: https://www.monolithai.com/blog/what-is-a-self-learning-model
