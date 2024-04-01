@@ -4,9 +4,14 @@ __pycache__/
 *$py.class
 *.zip
 *.pdf
-
+*/data/*
+data*
+*target
 # C extensions
 *.so
+Assign7/.tmp.driveupload*
+Assign7/.DS_Store
+.vscode/
 
 # Distribution / packaging
 .Python
