@@ -15,7 +15,7 @@ class LeNet(nn.Module):
     def __init__(self, input_shape=(32, 32), num_classes=100):
         super(LeNet, self).__init__()
         # Layer 1 (CN1)
-        self.convLayer1 = nn.Conv2d(in_channels=1, out_channels=6, kernel_size=5, stride=1)
+        self.convLayer1 = nn.Conv2d(in_channels=3, out_channels=6, kernel_size=5, stride=1)
         self.relu1 = nn.ReLU()
         self.maxPoolLayer1 = nn.MaxPool2d(kernel_size=2, stride=2)
 
@@ -29,9 +29,11 @@ class LeNet(nn.Module):
         
         # Layer 4: Linear layer 1 (16*5*5 -> 256) -- we have a kernel size of 5 with stride=1
         self.linear1 = nn.Linear(16*5*5, 256)
+        self.relu3 = nn.ReLU()
         
         # Layer 5: Linear layer 2 (256 -> 128)
         self.linear2 = nn.Linear(256, 128)
+        self.relu4 = nn.ReLU()
         
         # Layer 6: Output layer (128 -> 100)
         self.outputLayer = nn.Linear(128, num_classes)
@@ -40,42 +42,31 @@ class LeNet(nn.Module):
     def forward(self, x):
         shape_dict = {}
         # 1. Run layer 1
-        input_s = x.shape
-        x = self.convLayer1(x)
-        output_s = x.shape
-        shape_dict[1] = [input_s, output_s, 32, 32]
-        x = self.relu1(x)
+        x = self.relu1(self.convLayer1(x))
+        x = self.maxPoolLayer1(x)
+        shape_dict[1] = list(x.size())
 
         # 2. Run layer 2
-        input_s = x.shape
-        x = self.convLayer2(x)
-        output_s = x.shape
-        shape_dict[2] = [input_s, output_s, 32, 32]
-        x = self.relu2(x)
+        x = self.relu2(self.convLayer2(x))
+        x = self.maxPoolLayer2(x)
+        shape_dict[2] = list(x.size())
 
         # 3. Flatten
-        input_s = x.shape
         x = self.flatten1(x)
-        output_s = x.shape
-        shape_dict[3] = [input_s, output_s]
+        shape_dict[3] = list(x.size())
 
         # 4. Linear 1
-        input_s = x.shape
-        x = self.linear1(x)
-        output_s = x.shape
-        shape_dict[4] = [input_s, output_s]
+        x = self.relu3(self.linear1(x))
+        shape_dict[4] = list(x.size())
 
         # 5. Linear 2
-        input_s = x.shape
-        x = self.linear2(x)
-        output_s = x.shape
-        shape_dict[5] = [input_s, output_s]
+        x = self.relu4(self.linear2(x))
+        shape_dict[5] = list(x.size())
 
         # 6. Output layer
-        input_s = x.shape
         out = self.outputLayer(x)
         output_s = out.shape
-        shape_dict[6] = [input_s, output_s]
+        shape_dict[6] = list(x.size())
         
 
         return out, shape_dict
@@ -89,6 +80,8 @@ def count_model_params():
     model = LeNet()
     named_params = model.named_parameters()
     for name, param in named_params:
+        if not param.requires_grad:
+            continue
         total_count_params += param.numel()
 
     return total_count_params / 1e6
